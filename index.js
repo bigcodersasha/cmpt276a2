@@ -27,8 +27,8 @@ app.get('/database', (req,res) => {
 app.post('/adduser', (req, res)=>{
   console.log("post request for /adduser");
   var uname = req.body.uname;
-  var age = req.body.age;
-  res.send(`username: ${uname}, age: ${age}`);
+  var height = req.body.height;
+  res.send(`username: ${uname}, height: ${height}`);
 });
 app.get('/users/:id', (req, rest)=>{
 var uid = req.params.id;
