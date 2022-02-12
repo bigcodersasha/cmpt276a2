@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%- include ("../partials/header.ejs") %>
+  <style>
+    #rectangle {
+        width:"";
+        height:"";
+        background-color:"";
+    }
+</style>
+</head>
+
+<body>
+  <%- include ("../partials/nav.ejs") %>
+  <form class="" action="/database" method="post">
+</form>
+<div class="container">
+<h2>Rectangle</h2>
+<table id = "resultTable">
+    <% results.forEach(function(r) { %>
+        <tr> 
+          <p id="rectangle"><%= r.name %></p>
+          <td> . ID: <%= r.id %>  </td>
+          <td> . Name: <%= r.name %> </td>
+          <td> . Height: <%= r.height %> </td>
+          <td> . Width: <%= r.width %> </td>
+          <td> . Color: <%= r.color %> </td>
+        </tr>
+        <script>
+        var rectID = '<%= r.id %>';
+        var rectColor = '<%= r.color %>';
+        var rectHeight = '<%= r.height %>';
+        var rectWidth = '<%= r.width %>';
+        document.getElementById("rectangle").style.backgroundColor = rectColor;
+        document.getElementById("rectangle").style.height = rectHeight + "px";
+        document.getElementById("rectangle").style.width = rectWidth + "px";
+        </script>
+    <% }); %>
+      </table>
+</div>
+</form>
+</body>
+</html>

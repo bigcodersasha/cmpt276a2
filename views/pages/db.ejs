@@ -3,21 +3,35 @@
 <head>
   <%- include ("../partials/header.ejs") %>
 </head>
-
 <body>
-
-<%- include ("../partials/nav.ejs") %>
-
+  <%- include ("../partials/nav.ejs") %>
+  <h2>Rectangle Database</h2>
+<p>Add: Fill out all fields. ID input not necessary. Delete: Input valid ID. Invalid ID = error.</p>
+<p>Update: Input valid ID and updated fields. Go to: Input valid ID. Invalid ID = error.</p>
+  <form class="" action="/database" method="post">
+    <input type="text" name="name" value= "" placeholder="NAME"> <br>
+    <input type="number" name="height" value="" placeholder="HEIGHT"> <br>
+    <input type="number" name="width" value="" placeholder="WIDTH"> <br>
+    <input type="color" name="color" value="" placeholder="RGB-TAG"> <br>
+    <input type="number" name="id" value="" placeholder="ID to delete/update/go to"></br>
+    <input type="submit" name="action" value="Add">
+    <input type="submit" name="action" value="Delete">
+    <input type="submit" name="action" value="Update">
+    <input type="submit" name="action" value="Go to"></br>
+</form>
 <div class="container">
-<h2>Database Results</h2>
 
-<ul>
+<table id = "resultTable">
     <% results.forEach(function(r) { %>
-        <li><%= r.id %> <%= r.name %><%= r.height %><%= r.width %><%= r.color %></li>
+        <tr> 
+          <td> . ID: <%= r.id %>  </td>
+          <td> . Name: <%= r.name %> </td>
+          <td> . Height: <%= r.height %> </td>
+          <td> . Width: <%= r.width %> </td>
+          <td> . Color: <%= r.color %> </td>
+        </tr>
     <% }); %>
-</ul>
-
+      </table>
 </div>
-
 </body>
 </html>
