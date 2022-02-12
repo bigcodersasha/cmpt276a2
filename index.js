@@ -6,7 +6,7 @@ var app = express();
 const { Pool }  = require('pg');
 var pool = new Pool({
   connectionString: process.env.DATABASE_URL
-  //connectionString: process.env.DATABASE_URL
+  //Will this work? process.env.DATABASE_URL
 })
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
