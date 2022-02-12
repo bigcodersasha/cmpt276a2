@@ -6,7 +6,8 @@ var app = express();
 const { Pool }  = require('pg');
 var pool = new Pool({
   //connectionString: "postgres://postgres:cmpt276@localhost/rectangle"
-  connectionString: process.env.DATABASE_URL
+  connectionString: process.env.DATABASE_URL,
+  ssl: { rejectUnauthorized: false }
 })
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
@@ -23,7 +24,7 @@ app.get('/database', async (req,res) => {
     res.render('pages/db', data);
   }
   catch (error) {
-     res.send(error);
+     res.end(error);
   }
 });
 
