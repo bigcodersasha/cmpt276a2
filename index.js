@@ -23,7 +23,7 @@ app.get('/database', async (req,res) => {
     res.render('pages/db', data);
   }
   catch (error) {
-     res.end(error);
+     res.send(error);
   }
 });
 
